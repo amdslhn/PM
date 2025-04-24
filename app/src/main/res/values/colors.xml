@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Warna Latar -->
+    <color name="background_light">#F5F7FA</color>
+
+    <!-- Toolbar dan tab aktif -->
+    <color name="blue">#1E88E5</color>
+
+    <!-- FAB -->
+    <color name="orange">#FFA726</color> <!-- Tailwind-style orange 400 -->
+
+    <!-- Warna bottom nav icon dan teks -->
+    <color name="nav_item_selected">#1E88E5</color>
+    <color name="nav_item_unselected">#9E9E9E</color>
+
+    <!-- Gray umum -->
+    <color name="gray_200">#E5E7EB</color>
+    <color name="gray_700">#374151</color>
+
+    <!-- Dasar -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
