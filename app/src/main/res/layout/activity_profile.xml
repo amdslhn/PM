@@ -9,23 +9,25 @@
     android:padding="16dp"
     android:gravity="center_horizontal">
 
+    <!-- Judul Profil -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/blue"
         android:text="Profil Pengguna"
+        android:layout_marginBottom="20dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="@color/white"
         android:gravity="center"
-        android:paddingBottom="16dp"/>
+        android:paddingVertical="12dp"/>
 
+    <!-- CardView Informasi Pengguna -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="16dp"
         app:cardElevation="6dp"
-        android:background="@android:color/white"
-        android:padding="24dp"
         android:layout_marginBottom="16dp">
 
         <LinearLayout
@@ -33,64 +35,51 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/white"
-            android:layout_gravity="center">
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username: -"
+                android:text="Username :"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/gray_700"
-                android:paddingBottom="8dp"
-                android:layout_marginLeft="4dp"/>
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"/>
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email: -"
+                android:text="Email :"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:paddingBottom="8dp"
-                android:layout_marginLeft="4dp"/>
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"/>
 
             <TextView
                 android:id="@+id/tvNIM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NIM: -"
+                android:text="NIM :"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:paddingBottom="8dp"
-                android:layout_marginLeft="4dp"/>
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="4dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        android:background="@android:color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="20dp"
-        android:layout_marginTop="8dp">
-    </androidx.cardview.widget.CardView>
-    <TextView
+    <!-- Tombol Kembali -->
+    <ImageButton
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="< Back"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:background="@color/blue"/>
-
+        android:layout_marginTop="32dp"
+        android:src="@drawable/back"
+        android:backgroundTint="@color/gray_200"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="Kembali"/>
 </LinearLayout>

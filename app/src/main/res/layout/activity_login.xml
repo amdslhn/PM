@@ -6,133 +6,129 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:layout_margin="5dp">
+    android:background="@color/gray_200"
+    android:padding="16dp"
+    tools:context=".Login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="16dp">
 
+        <!-- Judul -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Silahkan Login Terlebih Dahulu"
-            android:textSize="18sp"
+            android:text="Sign In"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Label Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Email :"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="start"
-            android:paddingTop="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email : "/>
-        </LinearLayout>
-
+        <!-- Input Email -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
-            android:orientation="vertical"
             app:boxStrokeWidth="2dp"
-            app:hintAnimationEnabled="true"
             app:hintEnabled="false"
-            android:paddingTop="10dp">
+            android:layout_marginTop="4dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Email"
-                android:inputType="text"/>
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Label Password -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="start"
-            android:paddingTop="20dp">
+            android:text="Password :"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"/>
-        </LinearLayout>
-
+        <!-- Input Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
-            android:orientation="vertical"
             app:boxStrokeWidth="2dp"
-            app:hintAnimationEnabled="true"
             app:hintEnabled="false"
-            android:paddingTop="10dp">
+            android:layout_marginTop="4dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Masukkan Password"
-                android:inputType="textPassword"/>
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <!-- Checkbox -->
 
-            <CheckBox
-                android:id="@+id/rememberMe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ingat saya"/>
-        </LinearLayout>
 
+        <!-- Tombol Login -->
         <Button
             android:id="@+id/login"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"/>
+            android:text="Login"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue"
+            android:layout_marginTop="16dp" />
 
+        <!-- Lupa Password -->
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lupa kata sandi Anda?"
+            android:textColor="@color/blue"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal" />
+
+        <!-- Daftar Sekarang -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
 
             <TextView
-                android:id="@+id/forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lupa kata sandi Anda?"
-                android:textColor="#0027FF"/>
+                android:text="Belum punya akun?"
+                android:textColor="@color/black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/logNow"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Belum Punya akun? "/>
-
-                <TextView
-                    android:id="@+id/logNow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Daftar sekarang"
-                    android:textColor="#0027FF"/>
-            </LinearLayout>
+                android:text=" Daftar sekarang"
+                android:textColor="@color/blue" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

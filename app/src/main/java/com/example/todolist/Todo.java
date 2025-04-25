@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Todo extends RecyclerView.Adapter<Todo.TodoViewHolder> {
@@ -49,23 +48,36 @@ public class Todo extends RecyclerView.Adapter<Todo.TodoViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull TodoViewHolder holder, int position) {
         TodoAdapter todo = todoList.get(position);
+        bindTodoData(holder, todo);
+    }
+
+    private void bindTodoData(TodoViewHolder holder, TodoAdapter todo) {
         holder.title.setText(todo.getTitle());
         holder.checkBox.setChecked(todo.isDone());
         holder.priorityBox.setChecked(todo.isPriority());
 
         // Simpan update ke Firebase
+        setCheckBoxListeners(holder, todo);
+        setDeleteButtonListener(holder, todo);
+    }
+
+    private void setCheckBoxListeners(TodoViewHolder holder, TodoAdapter todo) {
+        // Listener untuk checkbox done
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             todo.setDone(isChecked);
-            updateTodo(todo);
+            updateTodoInFirebase(todo);
         });
 
+        // Listener untuk checkbox priority
         holder.priorityBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             todo.setPriority(isChecked);
-            updateTodo(todo);
-            sortTodos();
+            updateTodoInFirebase(todo);
+            // Urutkan hanya jika diperlukan (tidak pada setiap checkbox klik)
         });
+    }
 
-        // Tombol hapus
+    private void setDeleteButtonListener(TodoViewHolder holder, TodoAdapter todo) {
+        // Listener untuk tombol hapus
         holder.deleteButton.setOnClickListener(v -> {
             FirebaseDatabase.getInstance().getReference("todos")
                     .child(todo.getId()).removeValue();
@@ -74,12 +86,14 @@ public class Todo extends RecyclerView.Adapter<Todo.TodoViewHolder> {
         });
     }
 
-    private void updateTodo(TodoAdapter todo) {
+    private void updateTodoInFirebase(TodoAdapter todo) {
+        // Update data todo di Firebase
         FirebaseDatabase.getInstance().getReference("todos")
                 .child(todo.getId()).setValue(todo);
     }
 
-    private void sortTodos() {
+    // Fungsi untuk mengurutkan todos berdasarkan prioritas
+    public void sortTodosByPriority() {
         Collections.sort(todoList, (a, b) -> Boolean.compare(b.isPriority(), a.isPriority()));
         notifyDataSetChanged();
     }
