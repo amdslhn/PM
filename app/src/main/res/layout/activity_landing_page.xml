@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingPage"
-    android:background="#F5F7FA">
+    android:background="#F5F7FA"
+    tools:context=".LandingPage">
 
     <!-- Top Bar -->
     <androidx.appcompat.widget.Toolbar
@@ -15,8 +15,8 @@
         android:layout_height="56dp"
         android:background="#1E88E5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -28,7 +28,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
-
 
     <!-- Filter Tabs -->
     <com.google.android.material.tabs.TabLayout
@@ -42,36 +41,38 @@
         app:tabMode="fixed"
         app:tabGravity="fill"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-    </com.google.android.material.tabs.TabLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Input Todo -->
     <EditText
         android:id="@+id/setTodo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:hint="Masukkan todo baru"
         android:padding="12dp"
         android:background="@android:drawable/edit_text"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_700"
         app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="12dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Tombol Toggle Hide/Show -->
     <Button
         android:id="@+id/toggleTodoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tampilkan Daftar Todo"
         android:layout_marginTop="12dp"
+        android:text="Tampilkan Daftar Todo"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue"
         app:layout_constraintTop_toBottomOf="@id/setTodo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Daftar Todo (default hidden) -->
+    <!-- Daftar Todo -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todoRecyclerView"
         android:layout_width="0dp"
@@ -81,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@id/toggleTodoButton"
         app:layout_constraintBottom_toTopOf="@id/fabAddTodo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- FAB Tambah -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -89,12 +90,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/blue"
         android:contentDescription="Add Todo"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -106,7 +106,7 @@
         app:itemTextColor="@color/nav_item_color"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

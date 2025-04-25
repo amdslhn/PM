@@ -2,9 +2,32 @@ package com.example.todolist;
 
 public class User {
 
-    private String userId, username, userEmail, userPassword, userNIM;
+    private String userId;
+    private String username;
+    private String userEmail;
+    private String userPassword;
+    private String userNIM;
 
-    public User(){
+    // Constructor default diperlukan oleh Firebase
+    public User() {
+    }
+
+    // Constructor dengan parameter untuk inisialisasi objek User
+    public User(String userId, String username, String userEmail, String userPassword, String userNIM) {
+        this.userId = userId;
+        this.username = username;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userNIM = userNIM;
+    }
+
+    // Getter and Setter methods
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -15,12 +38,12 @@ public class User {
         this.username = username;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getUserPassword() {
@@ -31,14 +54,6 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
     public String getUserNIM() {
         return userNIM;
     }
@@ -46,14 +61,4 @@ public class User {
     public void setUserNIM(String userNIM) {
         this.userNIM = userNIM;
     }
-
-    public User(String userId, String username, String userEmail, String userPassword, String userNIM) {
-        this.userId = userId;
-        this.username = username;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userNIM = userNIM;
-    }
-
-
 }
